@@ -1,0 +1,15 @@
+BLUEPRINT:
+       APPLICATION: Kubernetes
+       OBJECT: K8s - Dockerfile
+       SUB_OBJECT: Deploy Docker Build
+       NAMESPACE: hr_chatbot
+       APPLICATION_POD: hr_chatbot
+SONAR:
+       PROJECT_CATEGORY: Python
+
+SERVICES:
+        LOADBALANCER:
+          rasa-nlu-bot: deploy-service.yaml
+          protocol: http
+        CONFIG: 
+          rasa-nlu-bot: deploy-config.yaml

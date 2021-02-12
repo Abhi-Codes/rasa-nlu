@@ -1,0 +1,32 @@
+1.Install Python and pip 
+2.Install virtualenv 
+    python -m virtualenv rasa-env
+3.Activate virtual environment 
+    source rasa-env/bin/activate
+4.Install RASA 
+    pip install rasa
+5.Initialize RASA directory structure
+    rasa init --no-prompt
+6.Install RASA X
+    pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
+7.Freeze the installations 
+    pip freeze > requirements.txt
+
+===========================================
+
+RASA commands 
+1. Run RASA shell
+    rasa shell
+2. Run RASA X 
+    rasa x
+3. Run action server
+    rasa run actions
+4. Train RASA 
+    rasa train
+5. Run Rasa server
+    rasa run -p 5002 --enable-api --cors "*"
+=============================================
+
+To run RASA locally with environment variables , export it before running RASA commands
+  export action_server_url=http://127.0.0.1:5055/webhook
+  rasa shell

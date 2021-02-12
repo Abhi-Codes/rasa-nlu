@@ -1,0 +1,117 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- get_started:
+    use_entities: true
+- topic_none:
+    use_entities: true
+- affirm:
+    use_entities: true
+- greet:
+    use_entities: true
+- topic_HR_content:
+    use_entities: true
+- topic_Foundation_content:
+    use_entities: true
+- topic_Benefits_content:
+    use_entities: true
+- inform_topic:
+    use_entities: true
+- deny:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- topic_Manager_content:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- chitchat:
+    use_entities: []
+entities:
+- feedback
+- topic
+- user
+slots:
+  topic:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  feedback:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  user:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How can I help you ?
+  utter_cheer_up:
+  - text: Sorry ! I am just a bot
+  utter_did_that_help:
+  - buttons:
+    - payload: /affirm{{"feedback":"Yes"}}
+      title: Yes
+    - payload: /deny{{"feedback":"No"}}
+      title: No
+    text: Did that help you?
+  utter_happy:
+  - text: 'Glad that I could help you ! '
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_capabilities:
+  - buttons:
+    - payload: /inform_topic{{"topic":"HR"}}
+      title: HR Content
+    - payload: /inform_topic{{"topic":"Manager"}}
+      title: EPIC2 Manager
+    - payload: /inform_topic{{"topic":"Benefits"}}
+      title: Vmware Benefits
+    - payload: /inform_topic{{"topic":"Foundation"}}
+      title: VMware Foundation
+    text: |
+      "Thank you for reaching out to HR Source. Please select from below list of topics that I can help you with today"
+  utter_selected_topic:
+  - text: You want help on {topic}.
+  utter_greet_name:
+  - text: Hi {user}. How can I help you?
+  utter_chitchat/benefits1:
+  - text: |-
+      For a list of eligible wellbeing expenses , review the Wellbeing Allowance FAQ.
+      To know more please visit the link : https://benefits.vmware.com/in/worklife/wellbeing-allowance/
+  utter_chitchat/benefits2:
+  - text: To initiate an Employee Requested Move, please review https://source.vmware.com/intranet/document/10181/Employee-Requested-Move-Considerations-and-Process.pdf
+  utter_chitchat/foundation1:
+  - text: You get an amount of 1000 $ if you achieve 40 hours of service learning.
+  utter_chitchat/hr1:
+  - text: Use the link https://www.myworkday.com/vmware/login.flex
+  utter_chitchat/manager1:
+  - text: Go to Source https://source.vmware.com/
+actions:
+- action_hello_world
+- action_show_faqs
+- utter_capabilities
+- utter_cheer_up
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_iamabot
+- utter_selected_topic
+- utter_greet_name
+forms: {}
+e2e_actions: []

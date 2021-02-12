@@ -1,0 +1,170 @@
+version: "2.0"
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: interactive_story_topic_unset_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_none
+  - action: utter_capabilities
+  - intent: inform_topic
+    entities:
+    - topic: HR
+  - slot_was_set:
+    - topic: HR
+  - action: action_show_faqs
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart
+- story: interactive_story_topic_unset_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_none
+  - action: utter_capabilities
+  - intent: inform_topic
+    entities:
+    - topic: Benefits
+  - slot_was_set:
+    - topic: Benefits
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: deny
+    entities:
+    - feedback: No
+  - slot_was_set:
+    - feedback: No
+  - action: utter_cheer_up
+  - action: action_restart
+- story: interactive_story_topic_set_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_Benefits_content
+    entities:
+    - topic: benefits
+  - slot_was_set:
+    - topic: benefits
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart
+- story: interactive_story_topic_set_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_Foundation_content
+    entities:
+    - topic: foundation
+  - slot_was_set:
+    - topic: foundation
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart
+- story: interactive_story_topic_set_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_HR_content
+    entities:
+    - topic: HR
+  - slot_was_set:
+    - topic: HR
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart
+- story: interactive_story_topic_set_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: topic_none
+    entities:
+    - topic: Manager
+  - slot_was_set:
+    - topic: Manager
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart
+- story: interactive_story_topic_set_4
+  steps:
+  - intent: get_started
+    entities:
+    - user: Abhi
+  - action: utter_greet_name
+  - intent: topic_none
+    entities:
+    - topic: Manager
+  - slot_was_set:
+    - topic: Manager
+  - action: action_show_faqs
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_did_that_help
+  - intent: affirm
+    entities:
+    - feedback: Yes
+  - slot_was_set:
+    - feedback: Yes
+  - action: utter_happy
+  - action: action_restart

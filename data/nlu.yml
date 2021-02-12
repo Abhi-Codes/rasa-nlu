@@ -1,0 +1,201 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - yo
+    - Hello
+    - Hi
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - [yes]{"entity": "feedback", "value": "Yes"}
+    - [y]{"entity": "feedback", "value": "Yes"}
+    - [indeed]{"entity": "feedback", "value": "Yes"}
+    - [of course]{"entity": "feedback", "value": "Yes"}
+    - [that sounds good]{"entity": "feedback", "value": "Yes"}
+    - [correct]{"entity": "feedback", "value": "Yes"}
+    - [reset](feedback)
+- intent: deny
+  examples: |
+    - [no{"entity": "feedback", "value": "No"}
+    - [n]{"entity": "feedback", "value": "No"}
+    - [never]{"entity": "feedback", "value": "No"}
+    - [I don't think so]{"entity": "feedback", "value": "No"}
+    - [don't like that]{"entity": "feedback", "value": "No"}
+    - [no way]{"entity": "feedback", "value": "No"}
+    - [not really]{"entity": "feedback", "value": "No"}
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: inform_topic
+  examples: |
+    - [HR content]{"entity": "topic", "value": "HR"}
+    - [manager]{"entity": "topic", "value": "Manager"}
+    - [VMware Benefits]{"entity": "topic", "value": "Benefits"}
+    - [VM Benefits]{"entity": "topic", "value": "Benefits"}
+    - [VMware foundation]{"entity": "topic", "value": "Foundation"}
+    - [VM foundation]{"entity": "topic", "value": "Foundation"}
+    - [VMware Foundation]{"entity": "topic", "value": "Foundation"}
+- intent: topic_none
+  examples: |
+    - What can you do ?
+    - What can I do here ?
+    - How can you help me ?
+    - What are your powers ?
+    - I need help
+    - need help
+    - can u help me
+    - need [manager]{"entity": "topic", "value": "Manager"} help
+    - what can you do ?
+    - what can you do
+- intent: topic_HR_content
+  examples: |
+    - I need help with [HR content]{"entity": "topic", "value": "HR"}
+    - Help on [HR Policies]{"entity": "topic", "value": "HR"} ?
+    - [HR](topic) help required
+    - Check [HR content]{"entity": "topic", "value": "HR"} FAQs
+    - need help on [HR](topic)
+- intent: topic_Manager_content
+  examples: |
+    - Need help with [Manager](topic) content
+    - I am a [manager]{"entity": "topic", "value": "Manager"}
+    - Check [Manager](topic) FAQs?
+- intent: topic_Benefits_content
+  examples: |
+    - I need help with [VMware Benefits]{"entity": "topic", "value": "Benefits"}
+    - Help on [VMware Benefits]{"entity": "topic", "value": "Benefits"} ?
+    - [HR Benefits]{"entity": "topic", "value": "Benefits"} help required
+    - Check [Benefits](topic) FAQs
+    - What [Benefits](topic) Vmware provides to me ?
+    - Need help on [Benefits](topic)
+    - Can you help me on [Benefits](topic) ?
+    - need help on [benefits](topic)
+- intent: topic_Foundation_content
+  examples: |
+    - I need help with [VMware Foundation]{"entity": "topic", "value": "Foundation"}
+    - Help on [VMware Foundation]{"entity": "topic", "value": "Foundation"} ?
+    - [Foundation](topic) help required
+    - Check [VMware Foundation]{"entity": "topic", "value": "Foundation"} FAQs
+    - need help on [Foundation](topic)
+    - [VM Foundation]{"entity": "topic", "value": "Foundation"} help required
+    - need help on [foundation](topic)
+- intent: get_started
+  examples: |
+    - My name is [Abhi](user)
+    - I am [sindhu](user)
+- intent: chitchat/benefits1
+  examples: |
+    - I want to buy guitar, can I expense it in wellbeing allowance?
+    - Can I expense out my guitar in wellbeing allowance. 
+    - can I expense guitar in wellbeing allowance
+- intent: chitchat/benefits2
+  examples: |
+    - I want to know about the Employee Requested Move (ERM)
+    - help me on  Employee Requested Move (ERM)
+    - how to raise Employee Requested Move (ERM)
+- intent: chitchat/foundation1
+  examples: |
+    - How much can I donate in a year to VMware Foundation ?
+    - How much I get in a yaer for donation to Foundation ? 
+- intent: chitchat/hr1
+  examples: |
+    - Can you share the link for Workday?
+    - How do I access Workday?
+- intent: chitchat/manager1
+  examples: |
+    - Where can I find the resources for Manager ?
+    - Share the link for Manager Resources.
+- synonym: Yes
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- synonym: No
+  examples: |
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- synonym: HR
+  examples: |
+    - HR content
+    - HR Policies
+- synonym: Manager
+  examples: |
+    - manager
+- synonym: Benefits
+  examples: |
+    - VMware Benefits
+    - VM Benefits
+    - HR Benefits
+- synonym: Foundation
+  examples: |
+    - VMware foundation
+    - VM foundation
+    - VMware Foundation
+    - VM Foundation
