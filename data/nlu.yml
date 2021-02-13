@@ -108,6 +108,8 @@ nlu:
     - need [manager]{"entity": "topic", "value": "Manager"} help
     - what can you do ?
     - what can you do
+    - What can u do ?
+    - what can u do ?
 - intent: topic_HR_content
   examples: |
     - I need help with [HR content]{"entity": "topic", "value": "HR"}
@@ -146,7 +148,7 @@ nlu:
 - intent: chitchat/benefits1
   examples: |
     - I want to buy guitar, can I expense it in wellbeing allowance?
-    - Can I expense out my guitar in wellbeing allowance. 
+    - Can I expense out my guitar in wellbeing allowance.
     - can I expense guitar in wellbeing allowance
 - intent: chitchat/benefits2
   examples: |
@@ -156,7 +158,7 @@ nlu:
 - intent: chitchat/foundation1
   examples: |
     - How much can I donate in a year to VMware Foundation ?
-    - How much I get in a yaer for donation to Foundation ? 
+    - How much I get in a yaer for donation to Foundation ?
 - intent: chitchat/hr1
   examples: |
     - Can you share the link for Workday?
